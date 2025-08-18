@@ -22,14 +22,14 @@ const app = express();
 app.use(express.json({limit:"100mb"}));
 app.use(express.urlencoded({extended:true, limit:"100mb"}));
 app.use(session({
-    secret:"Some_secret",
+    secret:"Some_secret_nfigierbvf8gwdjhjfioerjnfgitedn",
     resave:false,
     saveUninitialized:false,
     cookie:{
         maxAge:24*60*60*1000,
-        sameSite:"lax", // only while building
-        secure:false, // only while building
-        httpOnly:true // only while building
+        sameSite:"none", 
+        secure:true, 
+        httpOnly:false 
     },
     store:MongoStore.create({
         client:mongoose.connection.getClient(),
