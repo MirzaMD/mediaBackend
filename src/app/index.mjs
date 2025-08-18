@@ -35,7 +35,7 @@ app.use(session({
         client:mongoose.connection.getClient(),
     })
 }))
-
+app.set("trust proxy", true);
 app.use(cors({
     origin:["https://real-media.vercel.app","http://localhost:3000","http://localhost:3001","http://localhost:3002"],
     methods:["GET","POST","PATCH","DELETE","PUT","OPTIONS"],
