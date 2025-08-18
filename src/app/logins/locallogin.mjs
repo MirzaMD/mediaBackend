@@ -27,15 +27,15 @@ localLogin.post("/api/login", (req, res, next) => {
 localLogin.get("/api/login/discord",passport.authenticate("discord"));
 
 localLogin.get("/auth/discord/callback",passport.authenticate("discord",{
-    successRedirect:"http://localhost:3000",
-    failureRedirect:"http://localhost:3003"
+    successRedirect:"https://real-media.vercel.app/users",
+    failureRedirect:""
 }))
 
 localLogin.get("/api/login/github",passport.authenticate("github"));
 
 localLogin.get("/auth/github/callback",passport.authenticate("github",{
-    successRedirect:"http://localhost:3000",
-    failureRedirect:"http://localhost:3003"
+    successRedirect:"https://real-media.vercel.app/users",
+    failureRedirect:""
 }))
 
 localLogin.post("/api/logout",(req, res, next)=>{
@@ -43,7 +43,7 @@ localLogin.post("/api/logout",(req, res, next)=>{
         if(err) return next(err);
         req.session.destroy((err)=>{
             if(err) return res.sendStatus(400);
-            res.clearCookie("connect.sid", { path: "http://localhost:3000" } ); // change the path later
+            res.clearCookie("connect.sid", { path: "https://real-media.vercel.app/login" } ); // change the path later
             return res.sendStatus(200);
         })
     })

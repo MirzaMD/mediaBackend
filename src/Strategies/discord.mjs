@@ -22,7 +22,7 @@ export default passport.use(new Strategy({
     clientID:process.env.DISCORD_ID,
     clientSecret:process.env.DISCORD_SECRET,
     scope:["identify","guilds"],
-    callbackURL:"http://localhost:3005/auth/discord/callback",
+    callbackURL:"https://mediabackend-yj45.onrender.com/auth/discord/callback",
 }, async (accessToken, refreshToken, profile, done)=>{
     try{
         let user = await users.findOne({discordId:profile.id});

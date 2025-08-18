@@ -14,7 +14,7 @@ export const MailSender=async (recepient, name)=>{
     const details={
         from:process.env.MY_MAIL,
         to:recepient,
-        subject:"Greetings from media",
+        subject:"Greetings from Real Media",
         text:`Hello ${name}, thank you for signing up.`
     }
     try{

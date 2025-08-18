@@ -37,7 +37,7 @@ app.use(session({
 }))
 
 app.use(cors({
-    origin:["http://localhost:3000","http://localhost:3001","http://localhost:3002"],
+    origin:["https://real-media.vercel.app","http://localhost:3000","http://localhost:3001","http://localhost:3002"],
     methods:["GET","POST","PATCH","DELETE","PUT","OPTIONS"],
     credentials:true
 }))
@@ -49,7 +49,7 @@ app.use(contObj);
 const httpServer = http.createServer(app)
 const io = new Server(httpServer,{
     cors:{
-    origin:["http://localhost:3000","http://localhost:3001","http://localhost:3002"],
+    origin:["https://real-media.vercel.app","http://localhost:3000","http://localhost:3001","http://localhost:3002"],
     methods:["GET","POST","PATCH","DELETE","PUT","OPTIONS"],
     credentials:true
     }
@@ -107,5 +107,5 @@ app.get("/api/notifications/:id", async (req, res )=>{
   }
 })
 httpServer.listen(3005,()=>{
-    console.log(`server active on http://localhost:3005`);
+    console.log(`server active on "https://real-media.vercel.app"`);
 })

@@ -21,7 +21,7 @@ passport.deserializeUser(async (id,done)=>{
 export default passport.use(new GitStrategy({
     clientID: process.env.GITHUB_ID,
     clientSecret: process.env.GITHUB_SECRET,
-    callbackURL: "http://localhost:3005/auth/github/callback"
+    callbackURL: "https://mediabackend-yj45.onrender.com/auth/github/callback"
 }, 
 async (accessToken, refreshToken, profile, done) => {
     try {
