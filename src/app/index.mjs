@@ -29,13 +29,13 @@ app.use(session({
         maxAge:24*60*60*1000,
         sameSite:"none", 
         secure:true, 
-        httpOnly:false 
+        httpOnly:true 
     },
     store:MongoStore.create({
         client:mongoose.connection.getClient(),
     })
 }))
-app.set("trust proxy", true);
+app.set("trust proxy", 1); 
 app.use(cors({
     origin:["https://real-media.vercel.app","http://localhost:3000","http://localhost:3001","http://localhost:3002"],
     methods:["GET","POST","PATCH","DELETE","PUT","OPTIONS"],
